@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фестиваль</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="stylee.css">
+
+
+
+</head>
+<body>
+  
+  
+      <!-- Header | Havbar -->
+       <header>
+        <nav class="navbar">
+          <a href="#" class="nav-logo">
+            <h2 class="logo-text">ICONIQ</h2>
+          </a>
+          <ul class="nav-menu">
+            <button id="menu-close-button" class="fas fa-times"></button>
+            <li class="nav-item">
+              <a href="#about" class="nav-link">О фестивале</a>
+            </li>
+            <li class="nav-item">
+              <a href="#lineup" class="nav-link">Расписание</a>
+            </li>
+            <li class="nav-item">
+              <a href="#zone" class="nav-link">Сцены</a>
+            </li>
+            <li class="nav-item">
+              <a href="#gallery" class="nav-link">Галерея</a>
+            </li>
+            <li class="nav-item">
+              <a href="#contact" class="nav-link">Контакты</a>
+            </li>
+          </ul>
+          
+          <button id="menu-open-button" class="fas fa-bars"></button>
+        </nav>
+      </header>
+      <main>
+      
+      
+      
+      <!-- Hero section -->
+       <section class="hero-section">
+        <div class="section-content">
+          <div class="hero-details">
+            <h2 class="title">You Are the Headline</h2>
+            <p class="description">Не просто фестиваль.</p>
+            <a href="https://open.spotify.com/playlist/4tzQb7Ot8fRtdT88XEQ5mX?si=HIlXN0wpQ-igmOL4b5sq5w&pi=dJsze9UAQRav7" class="playlist-link" target="_blank">Музыка Хедлайнеров</a>
+            <div class="buttons">
+              <a href="https://ticketon.kz/" class="button order-now" target="_blank">Купить билет</a>
+            </div>
+          </div>
+          <div class="hiro-image-wrapper">
+            <img src="images/logo2.png" alt="Hero" class="hero-image">
+          </div>
+        </div>
+      </section>
+
+      <!-- About section -->
+       <section class="about-section" id="about">
+        <div class="section-content">
+          <div class="about-image-wrapper">
+            <div class="carousel-container">
+              <div class="carousel-track">
+                <img src="images/z.png" alt="Фото 1" class="carousel-image">
+                <img src="images/x.png" alt="Фото 2" class="carousel-image">
+                <img src="images/c.png" alt="Фото 3" class="carousel-image">
+                <img src="images/v.png" alt="Фото 4" class="carousel-image">
+                <img src="images/b.png" alt="Фото 5" class="carousel-image">
+              </div>
+              <div class="carousel-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+              </div>
+            </div>
+          </div>
+          <script>
+          const track = document.querySelector('.carousel-track');
+          const images = document.querySelectorAll('.carousel-image');
+          const dots = document.querySelectorAll('.dot');
+          let currentIndex = 0;
+          
+          function updateCarousel(index) {
+            const offset = -index * 420; 
+            track.style.transform = `translateX(${offset}px)`;
+            
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[index].classList.add('active');
+          }
+          function goToNextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateCarousel(currentIndex);
+          }
+          
+          document.querySelector('.carousel-container').addEventListener('click', goToNextImage);
+          
+          dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+              currentIndex = index;
+              updateCarousel(currentIndex);
+            });
+          });
+          
+          updateCarousel(currentIndex);
+          setInterval(goToNextImage, 5000);
+          </script>
+          
+          <div class="about-details">
+            <h2 class="section-title">О фестивале</h2>
+            <p class="text">ICONIQ — это не просто фестиваль. Мы создали пространство, где ты — центр сцены. Музыка, мода, свет и ритуал сплетаются в одно имя: твоё. Это главный музыкальный фестиваль года, в котором личность — главный хедлайнер. Мы объединяем музыку, эстетику, моду и перформанс в один ритуал. Чтобы ты не просто пришёл — а вошёл в историю.</p>
+            <div class="social-link-list">
+              <a href="https://x.com/le_sserafim" class="social-link" target="_blank">
+                <i class="fa-brands fa-x"></i>
+              </a>
+              <a href="https://youtube.com/@coachella?si=Cm7r0J6ZMoka0A04" class="social-link" target="_blank">
+                <i class="fa-brands fa-youtube"></i>
+              </a>
+              <a href="https://www.instagram.com/coachella/" class="social-link" target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="https://www.facebook.com/coachella/" class="social-link" target="_blank">
+                <i class="fa-brands fa-facebook"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+              
+              
+      <!-- Schedule section -->
+       <section class="menu-section" id="lineup">
+        <h2 class="section-title">расписание</h2>
+        <div class="schedule-buttons">
+          <button class="open-modal-btn" data-day="1">DAY 1</button>
+          <button class="open-modal-btn" data-day="2">DAY 2</button>
+          <button class="open-modal-btn" data-day="3">DAY 3</button>
+          <button class="open-modal-btn" data-day="4">DAY 4</button>
+          <button class="open-modal-btn" data-day="5">DAY 5</button>
+          <button class="open-modal-btn" data-day="6">DAY 6</button>
+        </div>
+      
+      <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const openBtns = document.querySelectorAll('.open-modal-btn');
+        const closeBtns = document.querySelectorAll('.close-btn');
+        
+        openBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const day = btn.getAttribute('data-day');
+            document.getElementById(`modal-day${day}`).style.display = 'flex';
+          });
+        });
+        
+        closeBtns.forEach(closeBtn => {
+          closeBtn.addEventListener('click', () => {
+            closeBtn.closest('.modal-overlay').style.display = 'none';
+          });
+        });
+        
+        window.addEventListener('click', e => {
+          if (e.target.classList.contains('modal-overlay')) {
+            e.target.style.display = 'none';
+          }
+        });
+        });
+</script>
+
+<div class="modal-overlay" id="modal-day1">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h3>ICONIQ SCHEDULE — DAY 1</h3>
+    <table class="schedule-table">
+      <thead>
+        <tr><th>Время(UTC+5)</th><th>Halo</th><th>Noir</th><th>Muse</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>14:00</td><td>Lady Gaga</td><td>Parcels</td><td>HiTech</td></tr>
+        <tr><td>15:00</td><td>Missy Elliott</td><td>The Marías</td><td></td></tr>
+        <tr><td>16:00</td><td>Benson Boone</td><td></td><td>SPEED</td></tr>
+        <tr><td>17:00</td><td></td><td>The Go-Go's</td><td>Artemas</td></tr>
+        <tr><td>18:00</td><td>Gabe Real</td><td>Seun Kuti & Egypt 80</td><td>Los Mirlos</td></tr>
+        <tr><td>19:00</td><td>Doja Cat</td><td>Juicewon</td><td>A. G. Cook</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-day2">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h3>ICONIQ SCHEDULE — DAY 2</h3>
+    <table class="schedule-table">
+      <thead>
+        <tr><th>Время(UTC+5)</th><th>Halo</th><th>Noir</th><th>Muse</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>14:00</td><td>Rihanna</td><td>SZA</td><td>Grimes</td></tr>
+        <tr><td>15:00</td><td>Billie Eilish</td><td>FKJ</td><td></td></tr>
+        <tr><td>16:00</td><td>Dua Lipa</td><td></td><td>Yves Tumor</td></tr>
+        <tr><td>17:00</td><td></td><td>Raye</td><td>PinkPantheress</td></tr>
+        <tr><td>18:00</td><td>Charli XCX</td><td>070 Shake</td><td>Jockstrap</td></tr>
+        <tr><td>19:00</td><td>Tove Lo</td><td></td><td>SOPHIE Tribute</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-day3">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h3>ICONIQ SCHEDULE — DAY 3</h3>
+    <table class="schedule-table">
+      <thead>
+        <tr><th>Время(UTC+5)</th><th>Halo</th><th>Noir</th><th>Muse</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>14:00</td><td>Beyoncé</td><td></td><td>Sevdaliza</td></tr>
+        <tr><td>15:00</td><td>Ariana Grande</td><td>King Princess</td><td>FKA Twigs</td></tr>
+        <tr><td>16:00</td><td></td><td>Beabadoobee</td><td>Shygirl</td></tr>
+        <tr><td>17:00</td><td>Rosalía</td><td>Kali Uchis</td><td>Rina Sawayama</td></tr>
+        <tr><td>18:00</td><td>Halsey</td><td>MØ</td><td></td></tr>
+        <tr><td>19:00</td><td>Nicki Minaj</td><td>Jorja Smith</td><td>Jessie Ware</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-day4">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h3>ICONIQ SCHEDULE — DAY 4</h3>
+    <table class="schedule-table">
+      <thead>
+        <tr><th>Время(UTC+5)</th><th>Halo</th><th>Noir</th><th>Muse</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>14:00</td><td>Kendrick Lamar</td><td>Burna Boy</td><td>Little Simz</td></tr>
+        <tr><td>15:00</td><td></td><td>Anderson .Paak</td><td>slowthai</td></tr>
+        <tr><td>16:00</td><td>Travis Scott</td><td>Tyler, The Creator</td><td>JPEGMAFIA</td></tr>
+        <tr><td>17:00</td><td>Post Malone</td><td>Playboi Carti</td><td></td></tr>
+        <tr><td>18:00</td><td>21 Savage</td><td></td><td>Baby Keem</td></tr>
+        <tr><td>19:00</td><td>J. Cole</td><td>A$AP Rocky</td><td>Noname</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-day5">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h3>ICONIQ SCHEDULE — DAY 5</h3>
+    <table class="schedule-table">
+      <thead>
+        <tr><th>Время(UTC+5)</th><th>Halo</th><th>Noir</th><th>Muse</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>14:00</td><td>Kendrick Lamar</td><td>Vince Staples</td><td>Kelela</td></tr>
+        <tr><td>15:00</td><td>Tyler, the Creator</td><td>Doja Cat</td><td>PinkPantheress</td></tr>
+        <tr><td>16:00</td><td>André 3000</td><td>Chloe x Halle</td><td>Rina Sawayama</td></tr>
+        <tr><td>17:00</td><td></td><td>Noname</td><td></td></tr>
+        <tr><td>18:00</td><td>TXT</td><td>aespa</td><td>Los Mirlos</td></tr>
+        <tr><td>19:00</td><td>J. Cole</td><td>A$AP Rocky</td><td>Noname</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-day6">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h3>ICONIQ SCHEDULE — DAY 6</h3>
+    <table class="schedule-table">
+      <thead>
+        <tr><th>Время(UTC+5)</th><th>Halo</th><th>Noir</th><th>Muse</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>14:00</td><td>Lana Del Rey</td><td>Florence + The Machine</td><td>AURORA</td></tr>
+        <tr><td>15:00</td><td>Ellie Goulding</td><td>Bat for Lashes</td><td>Agnes Obel</td></tr>
+        <tr><td>16:00</td><td></td><td>London Grammar</td><td></td></tr>
+        <tr><td>17:00</td><td>Taylor Swift</td><td>Maggie Rogers</td><td>Weyes Blood</td></tr>
+        <tr><td>18:00</td><td>Olivia Rodrigo</td><td></td><td>Laufey</td></tr>
+        <tr><td>19:00</td><td>Avril Lavigne</td><td>Aly & AJ</td><td>Feist</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</section>
+          
+      <!-- Zone section -->
+       <section class="zone-section" id="zone">
+        <h2 class="section-title">сцены</h2>
+        <div class="section-content">
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide zone">
+                <img src="images/n.png" alt="Halo" class="zone-image">
+                <h3 class="name">HALO</h3>
+                <i class="feedback">основная и самая большая сцена</i>
+              </div>
+              <div class="swiper-slide zone">
+                <img src="images/m.png" alt="Noir" class="zone-image">
+                <h3 class="name">NOIR</h3>
+                <i class="feedback">сцена под открытым небом</i>
+              </div>
+              <div class="swiper-slide zone">
+                <img src="images/a.png" alt="Muse" class="zone-image">
+                <h3 class="name">MUSE</h3>
+                <i class="feedback">сцена на которой рождается будущее</i>
+              </div>
+            </div>
+            
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </section>
+          
+  
+
+<!-- Gallery Section -->
+       <section class="gallery-section" id="gallery">
+        <h2 class="section-title">Галерея</h2>
+        <div class="swiper gallery-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <a href="images/f.png" target="_blank"><img src="images/f.png" alt="Фото 1" class="gallery-image" /></a></div>
+              <div class="swiper-slide">
+                <a href="images/g.png" target="_blank"><img src="images/g.png" alt="Фото 2" class="gallery-image" /></a></div>
+                <div class="swiper-slide">
+                  <a href="images/h.png" target="_blank"><img src="images/h.png" alt="Фото 3" class="gallery-image" /></a></div>
+                <div class="swiper-slide">
+                  <a href="images/j.png" target="_blank"><img src="images/j.png" alt="Фото 4" class="gallery-image" /></a></div>
+                <div class="swiper-slide">
+                  <a href="images/k.png" target="_blank"><img src="images/k.png" alt="Фото 5" class="gallery-image" /></a></div>
+                <div class="swiper-slide">
+                  <a href="images/l.png" target="_blank"><img src="images/l.png" alt="Фото 6" class="gallery-image" /></a></div>
+                <div class="swiper-slide">
+                  <a href="images/q.png" target="_blank"><img src="images/q.png" alt="Фото 7" class="gallery-image" /></a></div>
+                <div class="swiper-slide">
+                  <a href="images/w.png" target="_blank"><img src="images/w.png" alt="Фото 8" class="gallery-image" /></a></div>
+                <div class="swiper-slide">
+                  <a href="images/e.png" target="_blank"><img src="images/e.png" alt="Фото 9" class="gallery-image" /></a></div>
+                
+                <div class="swiper-slide">
+                  <a href="images/vid1.mp4" target="_blank" class="video-link">
+                    <video class="gallery-video" muted>
+                      <source src="images/vid1.mp4" type="video/mp4">
+                    </video>
+                  </a>
+                </div>
+                <div class="swiper-slide">
+                  <a href="images/vid2.mp4" target="_blank" class="video-link">
+                    <video class="gallery-video" muted>
+                      <source src="images/vid2.mp4" type="video/mp4">
+                    </video>
+                  </a>
+                </div>
+              </div>
+              
+              <div class="swiper-pagination"></div>
+            </div>
+            
+            <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+            
+            <script>
+            document.addEventListener('DOMContentLoaded', function () {
+              new Swiper('.gallery-swiper', {
+                slidesPerView: 3,
+                slidesPerGroup: 3,
+                spaceBetween: 20,
+                loop: true,
+                speed: 600,
+                pagination: {
+                  el: '.swiper-pagination',
+                  clickable: true,
+                },
+                breakpoints: {
+                  640: {
+                    slidesPerView: 2,
+                    slidesPerGroup: 2,
+                  },
+                  768: {
+                    slidesPerView: 3,
+                    slidesPerGroup: 3,
+                    spaceBetween: 30,
+                  }
+                }
+              });
+            });
+            </script>
+            
+            <div class="swiper-pagination"></div>
+          </section>
+          
+      <!-- Contact section -->
+       <section class="contact-section" id="contact">
+        <h2 class="section-title">Адрес</h2>
+        <div class="section-content">
+          <ul class="contact-info-list">
+            <li class="contact-info">
+              <i class="fa-solid fa-location-crosshairs"></i>
+              <a href="https://www.google.com/maps?q=Улица Полины Осипенко_1" target="_blank">
+                Улица Полины Осипенко 1
+              </a>
+            </li>
+            <li class="contact-info">
+              <i class="fa-regular fa-envelope"></i>
+              <a href="mailto:jmini200625069081@gmail.com">
+                jmini200625069081@gmail.com
+              </a>
+            </li>
+            <li class="contact-info">
+              <i class="fa-solid fa-phone"></i>
+              <a href="https://wa.me/11234567890">
+                +1 123-456-7890
+              </a>
+            </li>
+            <li class="contact-info">
+              <i class="fa-regular fa-clock"></i>
+              <p>
+                <a href="https://time.is/UTC" target="_blank">
+                  для уточнения и сравнения времени
+                </a>
+              </p>
+            </li>
+          </ul>
+
+                   
+         </section>
+
+      <!-- Footer section -->
+       <footer class="footer-section">
+        <div class="section-content">
+          <p class="copyright-text">все права защищены</p>
+          <p class="policy-link">
+            <p>
+              <a href="privacy.html" target="_blank">Политика конфиденциальности
+              </a>
+            </p>
+          
+                <a href="partners.html" target="_blank">Партнёры
+                </a>
+              </p>
+        </div>
+      </footer>
+    </main>
+
+        
+
+<!-- Linking swiper script -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- Linking custom script --> 
+<script src="script.js"></script>
+</body>
+</html>
